@@ -24,6 +24,10 @@ export default function Home() {
       const result = await response.json();
 
       alert(result.message);
+
+      if (result.url) {
+        window.open(result.url, "_blank");
+      }
     } catch (error) {
       console.error(error);
       alert("Upload Failed");
