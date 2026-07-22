@@ -1,10 +1,9 @@
+import db from "@/lib/db";
 import {
   PutObjectCommand,
   GetObjectCommand,
 } from "@aws-sdk/client-s3";
-
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
-
 import s3 from "@/lib/s3";
 
 export async function POST(request: Request) {
@@ -20,19 +19,29 @@ export async function POST(request: Request) {
       });
     }
 
-    // Upload Image
+    // Object Key
+    const objectKey = file.name;
+
+    // Upload Image to S3
     const uploadCommand = new PutObjectCommand({
       Bucket: process.env.AWS_BUCKET_NAME!,
-      Key: file.name,
+      Key: objectKey,
       Body: Buffer.from(await file.arrayBuffer()),
     });
 
     await s3.send(uploadCommand);
 
-    // Generate Pre-Signed URL
+    // Save Metadata in RDS
+    await db.query(
+      `INSERT INTO uploads (file_name, s3_url)
+       VALUES (?, ?)`,
+      [file.name, objectKey]
+    );
+
+    // Generate Temporary Signed URL
     const getCommand = new GetObjectCommand({
       Bucket: process.env.AWS_BUCKET_NAME!,
-      Key: file.name,
+      Key: objectKey,
     });
 
     const url = await getSignedUrl(s3, getCommand, {
