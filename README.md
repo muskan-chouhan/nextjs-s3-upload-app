@@ -1,17 +1,20 @@
-# Next.js AWS S3 Upload App
+# AWS Cloud File Upload App
 
-A simple project that demonstrates how to upload images from a Next.js application to Amazon S3 using the AWS SDK.
+Production-ready Next.js application deployed on AWS that uploads images to Amazon S3 and stores application data in Amazon RDS using PM2 and Nginx.
 
 ---
 
-## Features
+## Architecture
 
-- Upload image from browser
-- Store image in Amazon S3
-- AWS SDK v3 integration
-- API Route using Next.js
-- Environment Variables
-- IAM User Authentication
+Browser
+↓
+Nginx
+↓
+PM2
+↓
+Next.js
+├──► Amazon S3
+└──► Amazon RDS
 
 ---
 
@@ -19,70 +22,46 @@ A simple project that demonstrates how to upload images from a Next.js applicati
 
 - Next.js
 - TypeScript
-- Amazon S3
 - AWS SDK v3
+- Amazon EC2
+- Amazon S3
+- Amazon RDS
 - IAM
+- PM2
+- Nginx
 
 ---
 
-## Project Structure
+## Features
 
-```text
-app/
- ├── api/
- │    └── upload/
- │         └── route.ts
- ├── page.tsx
-
-lib/
- └── s3.ts
-```
+- Image Upload
+- Amazon S3 Integration
+- Amazon RDS Integration
+- EC2 Deployment
+- PM2 Process Manager
+- Nginx Reverse Proxy
 
 ---
 
-## Environment Variables
+## Run Project
 
-Create a `.env.local` file.
+npm install
 
-```env
-AWS_ACCESS_KEY_ID=
-AWS_SECRET_ACCESS_KEY=
-AWS_REGION=ap-south-1
-AWS_BUCKET_NAME=
-```
-
----
-
-## Request Flow
-
-```text
-Browser
-    │
-    ▼
-Next.js
-    │
-    ▼
-API Route
-    │
-    ▼
-AWS SDK
-    │
-    ▼
-Amazon S3 Bucket
-```
+npm run dev
 
 ---
 
 ## Future Improvements
 
-- Generate unique file names
-- Pre-Signed URL Upload
-- Image Preview
-- EC2 Deployment
-- Docker Support
+- HTTPS
+- Load Balancer
+- Auto Scaling
+- Docker
+- Terraform
+- Kubernetes
 
 ---
 
 ## Author
 
-**Muskan Chouhan**
+Muskan Chouhan
