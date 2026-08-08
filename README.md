@@ -4,7 +4,7 @@ Production-ready Next.js application deployed on AWS that uploads images to Amaz
 
 ---
 
-## Architecture
+## 🔄 Architecture
 
 ```text
                    Internet
@@ -25,42 +25,20 @@ Production-ready Next.js application deployed on AWS that uploads images to Amaz
             Amazon S3   Amazon RDS
 ```
 
----
+## 🔄 Application Workflow
 
-## AWS Architecture
-
-- Custom VPC
-- Public Subnets
-- Private Subnet
-- Internet Gateway
-- Route Tables
-- Security Groups
-- Application Load Balancer (ALB)
-- Target Group
-- Auto Scaling Group (ASG)
-- Amazon EC2
-- Amazon S3
-- Amazon RDS
+- Users interact with the Next.js application to upload images.
+- Uploaded images are stored in Amazon S3.
+- Application data is stored in Amazon RDS (MySQL).
+- The application runs on multiple EC2 instances.
+- Nginx is configured as a reverse proxy for the application.
+- PM2 manages the Next.js application process.
+- The Application Load Balancer distributes incoming traffic across EC2 instances.
+- The Auto Scaling Group manages EC2 instances for scalable and highly available deployment.
 
 ---
 
-## Tech Stack
-
-- Next.js
-- TypeScript
-- AWS SDK v3
-- Amazon EC2
-- Amazon S3
-- Amazon RDS
-- Application Load Balancer
-- Auto Scaling Group
-- IAM
-- PM2
-- Nginx
-
----
-
-## Features
+ ## ✨ Features
 
 - Image Upload
 - Amazon S3 Integration
@@ -74,29 +52,14 @@ Production-ready Next.js application deployed on AWS that uploads images to Amaz
 
 ---
 
-## Run Project
-
+## 🚀 Installation / How to Run
 ```bash
 npm install
-
 npm run dev
 ```
 
 ---
 
-## Future Improvements
-
-- HTTPS (SSL/TLS)
-- Route 53
-- AWS WAF
-- CloudFront CDN
-- Docker
-- Terraform
-- Kubernetes
-- CI/CD Pipeline (GitHub Actions)
-
----
-
-## Author
+## 👩‍💻 Author
 
 Muskan Chouhan
