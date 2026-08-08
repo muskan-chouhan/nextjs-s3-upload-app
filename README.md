@@ -4,7 +4,7 @@ Production-ready Next.js application deployed on AWS that uploads images to Amaz
 
 ---
 
-## 🔄 Architecture
+## 🏗️ Architecture
 
 ```text
                    Internet
