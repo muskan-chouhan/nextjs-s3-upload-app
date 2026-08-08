@@ -38,20 +38,36 @@ Production-ready Next.js application deployed on AWS that uploads images to Amaz
 
 ---
 
- ## ✨ Features
-
+## ✨ Key Features
 - Image Upload
 - Amazon S3 Integration
 - Amazon RDS Integration
 - Multi-EC2 Deployment
 - Application Load Balancer
 - Auto Scaling Group
-- PM2 Process Manager
+- IAM Role-Based Access
 - Nginx Reverse Proxy
-- High Availability Architecture
+- PM2 Process Management
+- CloudWatch Monitoring
+- High Availability
 
 ---
 
+## 🔧 Infrastructure & Deployment
+- EC2
+- S3
+- RDS
+- VPC
+- IAM Roles
+- Security Groups
+- ALB
+- ASG
+- CloudWatch
+- Nginx
+- PM2
+
+---
+  
 ## 🚀 Installation / How to Run
 ```bash
 npm install
